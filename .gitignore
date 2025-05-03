@@ -1,0 +1,10 @@
+# Database
+sqlite.db
+data/
+
+
+# Python Cache
+*.pyc
+
+# Editor Settings
+/.vscode

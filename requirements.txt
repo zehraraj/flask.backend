@@ -1,0 +1,9 @@
+SQLAlchemy
+fastapi
+PyJWT
+uvicorn
+mysqlclient
+python-multipart
+pytest
+# pytest-ordering
+requests

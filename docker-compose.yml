@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  db:
+      image: mysql:5.7
+      restart: always
+      environment:
+        MYSQL_DATABASE: hubshub
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: admin
+        MYSQL_ROOT_PASSWORD: example
+      volumes:
+        - ./data:/data/db
+  web:
+    build: .
+    restart: always
+    command: uvicorn src.main:server --reload
+    environment:
+      DATABASE_URL: mysql://admin:admin@db/hubshub
+      PYTHONUNBUFFERED: 0
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
